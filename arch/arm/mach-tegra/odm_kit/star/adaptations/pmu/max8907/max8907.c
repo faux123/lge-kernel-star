@@ -143,8 +143,7 @@ static const NvU32 VoltageTable_SD_A[] = {
     10375, 10500, 10625, 10750, 10875, 11000, 11125, 11250,
     11375, 11500, 11625, 11750, 11875, 12000, 12125, 12250,
     12375, 12500, 12625, 12750, 12875, 13000, 13125, 13250,
-    13375, 13500, 13625, 13750, 13875, 14000, 14125, 14250,
-    14375, 14500, 14625, 14750, 14875, 15000
+    13375, 13500, 13625, 13750, 13875, 14000, 14125, 14250
 };
 
 // V3, LDO1, LDO4-LDO16, LDO19-20 (millivolts)
@@ -201,13 +200,13 @@ static NvU32 Max8907PmuVoltageSet_SD_A(const NvU32 OutMilliVolts);
 static NvU32 Max8907PmuVoltageSet_SD_B_LDO_B(const NvU32 OutMilliVolts);
 static NvU32 Max8907PmuVoltageSet_LDO_A(const NvU32 OutMilliVolts);
 
-#define MAX8907_MAX_OUTPUT_VOLTAGE_INDEX   0x45
+#define MAX8907_MAX_OUTPUT_VOLTAGE_INDEX   0x3F
 //20100413, , unused [START]
 #ifndef CONFIG_MACH_STAR
 #define FAN5355_MAX_OUTPUT_VOLTAGE_INDEX    0x37
 #endif
 //20100413, , unused [END]
-#define MAX8952_MAX_OUTPUT_VOLTAGE_INDEX	0x45
+#define MAX8952_MAX_OUTPUT_VOLTAGE_INDEX	0x3F
 
 static NvU32 Max8907PmuVoltageGet_SD_A(const NvU32 OutVoltageIndex)
 {
@@ -352,20 +351,20 @@ const NvU8 MIC2826_LDO_Votage_Table[] =
 #endif
 #define MAX8952_OUTPUT_VOLTAGE_INCREMENT_x10		100 // 10 mV
 
-#define MAX8907_MAX_OUTPUT_VOLTAGE_SD_A_x10         15000  // 1,500.0 mV
+#define MAX8907_MAX_OUTPUT_VOLTAGE_SD_A_x10         14250  // 1,425.0 mV
 #define MAX8907_MAX_OUTPUT_VOLTAGE_SD_B_LDO_B       3900   // 3,900 mV
 #define MAX8907_MAX_OUTPUT_VOLTAGE_LDO_A            2225   // 2,225 mV
 //20100413, , unused
 #ifndef CONFIG_MACH_STAR
 #define FAN5355_MAX_OUTPUT_VOLTAGE_x10               14375  // 1,437.5 mV
 #endif
-#define MAX8952_MAX_OUTPUT_VOLTAGE_x10				15000 
+#define MAX8952_MAX_OUTPUT_VOLTAGE_x10				13800 
 
 #define MAX8907_MIN_OUTPUT_VOLTAGE_RTC                 0   // 0 mV
 #define MAX8907_OUTPUT_VOLTAGE_INCREMENT_RTC           1   // Protected; use dummy, non-zero value
 //#define MAX8907_MAX_OUTPUT_VOLTAGE_RTC              3300   // 3,300 mV
 // WHISTLER/AP16 - Make this 1.2V for now, since ap15rm_power.c expects it that way.
-#define MAX8907_MAX_OUTPUT_VOLTAGE_RTC              13000
+#define MAX8907_MAX_OUTPUT_VOLTAGE_RTC              1200
 
 static NvU32 Max8907PmuVoltageSet_SD_A(const NvU32 OutMilliVolts)
 {
