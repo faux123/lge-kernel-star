@@ -30,9 +30,9 @@
 	@version	 V1.00		 2010.04.13		 Changsu Ha	 Create
 */
 
-//20100610, , sleep status gpio for modem [START]
-#define AP_SUSPEND_STATUS
-//20100610, , sleep status gpio for modem [START]
+//20100610, cs77.ha@lge.com, sleep status gpio for modem [START] // ebs
+//#define AP_SUSPEND_STATUS
+//20100610, cs77.ha@lge.com, sleep status gpio for modem [START] // ebs 
 
 #define AP20_A03_POWERKEY_WAR
 
