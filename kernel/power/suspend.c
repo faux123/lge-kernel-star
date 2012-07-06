@@ -28,9 +28,13 @@ const char *const pm_states[PM_SUSPEND_MAX] = {
 };
 
 static struct platform_suspend_ops *suspend_ops;
+
+#if 0
 //20110727 srinivas.mittapalli@lge.com	Patch applied from P990 froyo MR-03
 extern void star_emergency_restart(const char *domain, int timeout);
 extern void star_watchdog_disable();
+#endif
+
 /**
  *	suspend_set_ops - Set the global suspend method table.
  *	@ops:	Pointer to ops structure.
@@ -164,9 +168,12 @@ static int suspend_enter(suspend_state_t state)
 	if (!error) {
 		if (!suspend_test(TEST_CORE))
 			error = suspend_ops->enter(state);
+
+#if 0
 //20110727 srinivas.mittapalli@lge.com	Patch applied from P990 froyo MR-03			
 	printk("# AP20 chip wakeup \n");
 	star_emergency_restart("sys",62);
+#endif
 		sysdev_resume();
 	}
 
@@ -222,9 +229,12 @@ int suspend_devices_and_enter(suspend_state_t state)
 
  Resume_devices:
 	suspend_test_start();
+
+#if 0
 //20110727 srinivas.mittapalli@lge.com	Patch applied from P990 froyo MR-03	
 	printk("# Drv Resume Star\n");
 	star_emergency_restart("sys",61);
+#endif
 	dpm_resume_end(PMSG_RESUME);
 	suspend_test_finish("resume devices");
 	resume_console();
@@ -272,7 +282,7 @@ int enter_state(suspend_state_t state)
 
 	if (!mutex_trylock(&pm_mutex))
 		return -EBUSY;
-
+#if 0
 //20110727 srinivas.mittapalli@lge.com	Patch applied from P990 froyo MR-03
 	printk("[LOG] star_emergency_restart() called at enter_state() \n");
 	star_emergency_restart("sys", 63);
@@ -283,6 +293,7 @@ int enter_state(suspend_state_t state)
 	sys_sync();
 	printk("done.\n");
 	NvRmPrivDfsRunAfterSync();
+#endif
 
 	pr_debug("PM: Preparing system for %s sleep\n", pm_states[state]);
 	error = suspend_prepare();
