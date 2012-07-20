@@ -115,7 +115,12 @@ NvRmScaledClkLimits FakepScaledCpuLimits = {
 };
 
 #else	// STOCK_VOLTAGE_VALUES
+
+#ifndef CONFIG_CPU_LOW_GRADE
 #define MAX_CPU_OC_FREQ (1552000)
+#else
+#define MAX_CPU_OC_FREQ (1480000)
+#endif
 
 NvU32 FakeShmooVoltages[] = {
     800,
@@ -141,7 +146,11 @@ NvRmScaledClkLimits FakepScaledCpuLimits = {
 	1100000,
 	1216000,
 	1408000,
+#ifndef CONFIG_CPU_LOW_GRADE
 	1552000,
+#else
+	1480000,
+#endif
     }
 };
 

@@ -41,6 +41,11 @@ config STOCK_VOLTAGE
 	depends on MACH_STAR
 	default n
 
+config CPU_LOW_GRADE
+	bool "stock voltage values for LG CPUs"
+	depends on MACH_STAR && STOCK_VOLTAGE
+	default n
+
 config STAR_PMIC
 	bool "star pmic test"
 	depends on MACH_STAR

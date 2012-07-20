@@ -77,7 +77,11 @@ static struct cpufreq_frequency_table freq_table_1500[] = {
 	{ 4, 1100000 },
 	{ 5, 1216000 },
 	{ 6, 1408000 },
+#ifndef CONFIG_CPU_LOW_GRADE
 	{ 7, 1552000 },
+#else
+	{ 7, 1480000 },
+#endif
 	{ 8, CPUFREQ_TABLE_END },
 };
 
