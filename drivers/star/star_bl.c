@@ -299,8 +299,8 @@ static struct aat2870_ctl_tbl_t aat2870bl_alc_tbl[] = {
 #if 0
     { 0x10, 0x90 },  /* pwm inactive, auto polling, 1sec, +0% */
     { 0x10, 0xB0 },  /* pwm inactive, auto polling, 2sec, +0% */
-#endif
     { 0x10, 0xD0 },  /* pwm inactive, auto polling, 3sec, +0% */
+#endif
     { 0x00, 0xFF },  /* Channel Enable : ALL */
     { 0xFF, 0xFE }   /* end or command */
 };
